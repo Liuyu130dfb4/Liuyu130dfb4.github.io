@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN" itemscope itemtype="http://schema.org/WebPage">
 <head>
 <meta charset="utf-8">
@@ -25,79 +24,79 @@
 
 <!-- Add some inline styles to control the layout -->
 <style>
-  body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  header {
-    background-color: #1e6c93;
-    padding: 20px;
-    color: #fff;
-    text-align: center;
-  }
-  main {
-    padding: 20px;
-  }
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  nav {
-    margin: 20px 0;
-    text-align: center;
-  }
-  nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #1e6c93;
-    font-weight: bold;
-  }
-  section {
-    margin-bottom: 40px;
-  }
-  h2 {
-    color: #1e6c93;
-  }
+body {
+font-family: 'Lato', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+header {
+background-color: #1e6c93;
+padding: 20px;
+color: #fff;
+text-align: center;
+}
+main {
+padding: 20px;
+}
+footer {
+background-color: #333;
+color: white;
+text-align: center;
+padding: 10px;
+position: fixed;
+width: 100%;
+bottom: 0;
+}
+nav {
+margin: 20px 0;
+text-align: center;
+}
+nav a {
+margin: 0 15px;
+text-decoration: none;
+color: #1e6c93;
+font-weight: bold;
+}
+section {
+margin-bottom: 40px;
+}
+h2 {
+color: #1e6c93;
+}
 
-  /* Research block styles */
-  .research-block {
-      display: flex;              /* 使用 flexbox 布局，使研究内容和图片区域水平排列 */
-      justify-content: space-between; /* 内容和图片区域之间的间距 */
-      gap: 10px;                  /* 内容和图片之间的间距 */
-  }
-  
-  .research-content {
-      flex: 1;                    /* 研究内容占据剩余空间 */
-  }
-  
-  .research-images {
-      display: flex;              /* 使用 flexbox 布局来排列图片 */
-      flex-direction: column;     /* 图片垂直排列 */
-      gap: 10px;                  /* 图片之间的垂直间距 */
-  }
-  
-  .research-image img {
-      width: 60%;                /* 图片宽度为100% */
-      height: auto;               /* 保持纵横比 */
-      object-fit: contain;        /* 确保图片不变形 */
-  }
+/* Research block styles /
+.research-block {
+display: flex;              / 使用 flexbox 布局，使研究内容和图片区域水平排列 /
+justify-content: space-between; / 内容和图片区域之间的间距 /
+gap: 10px;                  / 内容和图片之间的间距 */
+}
 
-  /* Additional responsiveness (optional) */
-  @media (max-width: 768px) {
-    .research-images {
-      flex-direction: column; /* 小屏幕时堆叠显示 */
-    }
-    .research-image img {
-      max-width: 100%; /* 图片宽度为100% */
-    }
-  }
+.research-content {
+flex: 1;                    /* 研究内容占据剩余空间 */
+}
+
+.research-images {
+display: flex;              /* 使用 flexbox 布局来排列图片 /
+flex-direction: column;     / 图片垂直排列 /
+gap: 10px;                  / 图片之间的垂直间距 */
+}
+
+.research-image img {
+width: 60%;                /* 图片宽度为100% /
+height: auto;               / 保持纵横比 /
+object-fit: contain;        / 确保图片不变形 */
+}
+
+/* Additional responsiveness (optional) /
+@media (max-width: 768px) {
+.research-images {
+flex-direction: column; / 小屏幕时堆叠显示 /
+}
+.research-image img {
+max-width: 100%; / 图片宽度为100% */
+}
+}
 </style>
 </head>
 
@@ -108,76 +107,73 @@
 </header>
 
 <main>
-  <!-- About Me Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I get my Mphil degree in Mathematics from  the Chinese University of Hong Kong, Shenzhen and BSC degree in Applied Mathematics from Tongji University.</p>
-    <p>I am currently seeking PhD opportunities.</p>
-  </section>
+<!-- About Me Section -->
+<section id="about">
+<h2>About Me</h2>
+<p>I get my Mphil degree in Mathematics from  the Chinese University of Hong Kong, Shenzhen and BSC degree in Applied Mathematics from Tongji University.</p>
+<p>I am currently seeking PhD opportunities.</p>
+</section>
 
-  <!-- Research Experience Section -->
-  <section id="research-experience">
-    <h2>Research Experiences & Projects</h2>
-    
-    <!-- First research block -->
-    <div class="research-block">
-      <div class="research-content">
-        <h3>Valuation Model of Chinese Convertible Bonds Based on Monte Carlo Simulation</h3>
-        <p>We tackle the problem of pricing Chinese convertible bonds (CCBs) using Monte Carlo simulation and dynamic programming...</p>
-      </div>
-      <div class="research-images">
-        <div class="research-image">
-          <img src="110083_MRE.png" alt="Project 1 Image">
-        </div>
-        <div class="research-image">
-          <img src="Backtest.png" alt="Project 1 Image">
-        </div>
-      </div>
-    </div>
+<!-- Research Experience Section -->
+<section id="research-experience">
+<h2>Research Experiences & Projects</h2>
 
-    <!-- Second research block -->
-    <div class="research-block">
-      <div class="research-content">
-        <h3>Supervised Fine-Tuning of GPT-2 for Conversational Modeling</h3>
-        <p>Post fine-tuning, the model displayed a marked improvement in generating coherent and relevant dialogues...</p>
-      </div>
-      <div class="research-images">
-        <div class="research-image">
-          <img src="SFT.png" alt="Project 2 Image">
-        </div>
-      </div>
+<!-- First research block -->
+<div class="research-block">
+  <div class="research-content">
+    <h3>Valuation Model of Chinese Convertible Bonds Based on Monte Carlo Simulation</h3>
+    <p>We tackle the problem of pricing Chinese convertible bonds (CCBs) using Monte Carlo simulation and dynamic programming...</p>
+  </div>
+  <div class="research-images">
+    <div class="research-image">
+      <img src="110083_MRE.png" alt="Project 1 Image">
     </div>
+    <div class="research-image">
+      <img src="Backtest.png" alt="Project 1 Image">
+    </div>
+  </div>
+</div>
 
-    <!-- Third research block -->
-    <div class="research-block">
-      <div class="research-content">
-        <h3>Convertible Bond Automated Trading System</h3>
-        <p>This automated trading system is based on our previous work on convertible bond pricing...</p>
-      </div>
-      <div class="research-images">
-        <div class="research-image">
-          <img src="auto_trading.png" alt="Project 3 Image">
-        </div>
-      </div>
+<!-- Second research block -->
+<div class="research-block">
+  <div class="research-content">
+    <h3>Supervised Fine-Tuning of GPT-2 for Conversational Modeling</h3>
+    <p>Post fine-tuning, the model displayed a marked improvement in generating coherent and relevant dialogues...</p>
+  </div>
+  <div class="research-images">
+    <div class="research-image">
+      <img src="SFT.png" alt="Project 2 Image">
     </div>
-  
-    <!-- Fourth research block -->
-    <div class="research-block">
-      <div class="research-content">
-        <h3>Auto-Updated Website with Top 10 Convertible Bond Investment Rankings</h3>
-        <p>This automated trading system is based on our previous work on convertible bond pricing...</p>
-      </div>
-      <div class="research-images">
-        <div class="research-image">
-          <img src="auto_trading.png" alt="Project 3 Image">
-        </div>
-      </div>
+  </div>
+</div>
+
+<!-- Third research block -->
+<div class="research-block">
+  <div class="research-content">
+    <h3>Convertible Bond Automated Trading System</h3>
+    <p>This automated trading system is based on our previous work on convertible bond pricing...</p>
+  </div>
+  <div class="research-images">
+    <div class="research-image">
+      <img src="auto_trading.png" alt="Project 3 Image">
     </div>
-    
-    
-  </section>
+  </div>
+</div>
+
+<!-- Fourth research block -->
+<div class="research-block">
+  <div class="research-content">
+    <h3>Auto-Updated Website with Top 10 Convertible Bond Investment Rankings</h3>
+    <p>This automated trading system is based on our previous work on convertible bond pricing...</p>
+  </div>
+  <div class="research-images">
+    <div class="research-image">
+      <img src="auto_trading.png" alt="Project 3 Image">
+    </div>
+  </div>
+</div>
+</section>
 </main>
-
 
 </body>
 </html>
