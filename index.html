@@ -65,6 +65,21 @@
   h2 {
     color: #1e6c93;
   }
+  .research-block {
+  display: flex;
+  flex-direction: column; /* 或者 'row' 如果你希望两张图片并排显示 */
+  gap: 20px;
+}
+.research-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.research-image img {
+  max-width: 100%; /* 确保图片不会超出容器 */
+  height: auto;
+}
 </style>
 </head>
 
@@ -93,7 +108,10 @@
       <p>We tackle the problem of pricing Chinese convertible bonds(CCBs) using Monte Carlo simulation and dynamic programming. At each exercise time, we use the state variables of the underlying stock to regress the continuation value, and apply standard backward induction to get the coefficients from the current time to time zero. This process ultimately determines the CCB price. We then apply this pricing method in simulations and evaluate an underpriced strategy: taking long positions in the 10 most undervalued CCBs and rebalancing daily. The results show that this strategy significantly outperforms the benchmark double-low strategy. In practice, CCB issuers often use a downward adjustment clause to prevent financial distress when a put provision is triggered. Therefore, we model the downward adjustment clause as a probabilistic event that triggers the put provision, thereby integrating it with the put provision in a straightforward manner.</p>
     </div>
     <div class="research-image">
-      <img src="path_to_image1.jpg" alt="Project 1 Image">
+      <img src="110083_MRE.png" alt="Project 1 Image">
+    </div>
+      <div class="research-image">
+      <img src="110083_MRE.png" alt="Project 1 Image">
     </div>
   </div>
 
