@@ -65,29 +65,30 @@ h2 {
 color: #1e6c93;
 }
 
-/* Research block styles /
+/* Research block styles */
 .research-block {
-display: flex;              / 使用 flexbox 布局，使研究内容和图片区域水平排列 /
-justify-content: space-between; / 内容和图片区域之间的间距 /
-gap: 10px;                  / 内容和图片之间的间距 */
+  display: flex;                    /* 使用 flexbox 布局 */
+  flex-direction: column;            /* 让内容区和图片区竖直排列（上下方向） */
+  gap: 20px;                         /* 内容和图片区域之间的间距 */
 }
 
 .research-content {
-flex: 1;                    /* 研究内容占据剩余空间 */
+  flex: 1;                           /* 研究内容占据剩余空间 */
 }
 
 .research-images {
-display: flex;              /* 使用 flexbox 布局来排列图片 /
-flex-direction: column;     / 图片垂直排列 /
-gap: 10px;                  / 图片之间的垂直间距 */
+  display: flex;                     /* 使用 flexbox 布局来排列图片 */
+  flex-wrap: wrap;                   /* 允许图片换行 */
+  gap: 10px;                         /* 图片之间的间距 */
 }
 
 .research-image img {
-width: 60%;                /* 图片宽度为100% /
-height: auto;               / 保持纵横比 /
-object-fit: contain;        / 确保图片不变形 */
+  width: 48%;                         /* 图片宽度为 48%（让两张图片并排） */
+  height: auto;                      /* 保持纵横比 */
+  object-fit: contain;               /* 确保图片不变形 */
 }
 
+  
 </style>
 </head>
 
