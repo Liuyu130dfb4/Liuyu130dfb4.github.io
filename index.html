@@ -76,18 +76,19 @@ color: #1e6c93;
   flex: 1;                           /* 研究内容占据剩余空间 */
 }
 
-.research-images {
-  display: flex;                     /* 使用 flexbox 布局来排列图片 */
-  flex-wrap: wrap;                   /* 允许图片换行 */
+.research-image {
+  display: flex;                     /* 使用 flexbox 布局，让图片水平排列 */
+  justify-content: wrap;    /* 保持图片之间的间距 */
   gap: 10px;                         /* 图片之间的间距 */
 }
 
 .research-image img {
-  width: 48%;                         /* 图片宽度为 48%（让两张图片并排） */
-  height: auto;                      /* 保持纵横比 */
-  object-fit: contain;               /* 确保图片不变形 */
+  width: auto;                        /* 两张图片各占 48% 的宽度 */
+  height: 500px;                     /* 设置统一高度为 200px */
+  object-fit: contain;               /* 确保图片保持原始比例，不会被拉伸 */
+  border: 1px solid #ddd;            /* 为图片添加边框（可选） */
+  border-radius: 5px;                /* 为图片添加圆角（可选） */
 }
-
   
 </style>
 </head>
