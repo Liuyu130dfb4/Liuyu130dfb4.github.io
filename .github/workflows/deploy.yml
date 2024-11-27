@@ -10,21 +10,22 @@ jobs:
     runs-on: ubuntu-latest  # 在最新的 Ubuntu 上运行部署
 
     steps:
-      - name: Check out the repository
+      - name: Checkout repository
         uses: actions/checkout@v3  # 获取代码
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3  # 设置 Node.js 环境
         with:
-          node-version: '16'  # 设置 Node.js 版本（根据需要修改）
+          node-version: '16'  # 选择合适的 Node.js 版本（根据需要修改）
+
+      - name: Install dependencies
+        run: npm install  # 安装项目依赖
 
       - name: Build the project
-        run: |
-          npm run build  # 执行构建命令
+        run: npm run build  # 执行构建命令（假设构建目录是 build）
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.1  # 使用 GitHub Pages 部署 action
         with:
           branch: gh-pages  # 部署到 gh-pages 分支
-          folder: build     # 你的构建文件夹（例如 React 的构建文件夹是 build）
-
+          folder: build     # 部署构建文件夹（例如 React 的构建文件夹是 build）
