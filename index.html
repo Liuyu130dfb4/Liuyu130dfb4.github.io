@@ -90,22 +90,37 @@ li {
     .research-content {
       flex: 1; /* 研究内容占据剩余空间 */
     }
-
+/* 默认样式：图片列排列，靠左 */
 .research-image {
-  display: flex; /* 使用 flexbox 布局 */
-  flex-direction: row; /* 设置图片排列为水平 */
-  justify-content: space-between; /* 在容器中分散排列图片，确保它们之间有间距 */
-  gap: 10px; /* 图片之间的间距 */
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  gap: 10px;
+  align-items: flex-start; /* 图片靠左 */
 }
 
 .research-image img {
   width: auto;
-  height: 200px; /* 或者设置为统一的高度 */
+  height: 200px; /* 图片高度统一 */
   object-fit: contain; /* 保持图片比例 */
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
+/* 针对第三个项目：三张图片横向排列 */
+.horizontal-images {
+  display: flex; /* 水平排列 */
+  flex-direction: row;
+  justify-content: flex-start; /* 图片靠左 */
+  gap: 10px; /* 图片间距 */
+}
+
+.horizontal-images img {
+  width: auto;
+  height: 200px; /* 调整图片高度 */
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
     .project2-image {
       width: auto;
       height: 200px !important; /* 强制应用 */
@@ -113,6 +128,23 @@ li {
       border: 1px solid #ddd;
       border-radius: 5px;
     }
+
+/* Use flexbox to arrange images horizontally for third project */
+.horizontal-images {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Space images evenly */
+  gap: 10px; /* Optional: Add spacing between images */
+}
+
+.horizontal-images img {
+  width: auto;
+  height: 200px; /* Adjust as necessary */
+  object-fit: contain; /* Maintain aspect ratio */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
   </style>
 </head>
 
@@ -171,7 +203,7 @@ and observe their returns : assume the transaction cost is 0.1%, long the most u
         </div>
       </div>
 
-<!-- Third research block -->
+<<!-- Third research block -->
 <div class="research-block">
   <div class="research-content">
     <h3>Convertible Bond Automated Trading System</h3>
@@ -184,7 +216,7 @@ and observe their returns : assume the transaction cost is 0.1%, long the most u
     <p>
       I've developed an effective real-time trading strategy based on intraday volume.
     </p>
-    <div class="research-image">
+    <div class="research-image horizontal-images"> <!-- Add the 'horizontal-images' class here -->
       <img class="project2-image" src="11-26.png" alt="Project 3 Image">
       <img class="project2-image" src="11-27.png" alt="Project 3 Image">
       <img class="project2-image" src="11-28.png" alt="Project 3 Image">
