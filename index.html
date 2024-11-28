@@ -78,10 +78,6 @@ li {
     h2 {
       color: #1e6c93;
     }
-img[src="auto_trading.png"] {
-    height: 300px;
-    object-fit: contain;
-  }
 
     /* Research block styles */
     .research-block {
@@ -109,6 +105,23 @@ img[src="auto_trading.png"] {
   border-radius: 5px;
 }
 
+/* 默认样式：图片列排列，靠左 */
+.r-image {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  gap: 10px;
+  align-items: flex-start; /* 图片靠左 */
+}
+
+.r-image img {
+  width: auto;
+  height: 400px; /* 图片高度统一 */
+  object-fit: contain; /* 保持图片比例 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+	  
 /* 针对第三个项目：三张图片横向排列 */
 .horizontal-images {
   display: flex; /* 水平排列 */
@@ -232,8 +245,8 @@ and observe their returns : assume the transaction cost is 0.1%, long the most u
     <h3>4.Convertible Bond Automated Trading System</h3>
     <p>This automated trading system is based on our previous work on convertible bond pricing</p>
   </div>
-  <div class="research-images">
-    <div class="research-image">
+  <div class="r-images">
+    <div class="r-image">
       <img src="auto_trading.png" alt="Project 3 Image">
     </div>
     <p>
@@ -267,8 +280,8 @@ and observe their returns : assume the transaction cost is 0.1%, long the most u
       <a href="https://github.com/Aquareo/Aquareo.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>.
     </p>
     </div>
-    <div class="research-images">
-      <div class="research-image">
+    <div class="r-images">
+      <div class="r-image">
         <img src="top10.png" alt="Project 4 Image">
       </div>
     </div>
