@@ -29,6 +29,7 @@
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
+      padding-bottom: 80px;  /* 或者根据 footer 高度调整 */
     }
     header {
       background-color: #1e6c93;
@@ -42,16 +43,17 @@
       max-width: 1000px; /* 设置最大宽度为 1000px */
       margin: 0 auto; /* 确保内容居中 */
     }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      margin-top: 20px;
-    }
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 10;  /* 确保 footer 不被其他内容遮挡 */
+}
 ul {
   display: flex; /* 使用 flexbox 布局 */
   justify-content: space-between; /* 分散排列各个 list 项 */
