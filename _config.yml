@@ -106,5 +106,5 @@ theme: landscape
 deploy:
   type: git
   repo: git@github.com:Liuyu130dfb4/Liuyu130dfb4.github.io.git
-  branch: main
+  branch: gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
