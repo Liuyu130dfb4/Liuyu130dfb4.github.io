@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LeetCode 15 - 三数之和 | Mr. Liu&#39;s Learning Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="问题描述给你一个整数数组 nums，判断是否存在三元组 [nums[i], nums[j], nums[k]] 满足 i !&#x3D; j、i !&#x3D; k 且 j !&#x3D; k，同时还满足 nums[i] + nums[j] + nums[k] &#x3D;&#x3D; 0。请你返回所有和为 0 且不重复的三元组。  算法思路 排序：首先对数组进行排序，方便后续使用双指针。 固定一个数：遍历数组，固定一个数 nums[i]，然后在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 15 - 三数之和">
+<meta property="og:url" content="https://liuyu130dfb4.github.io/2025/04/02/leetcode-15-three-sum/index.html">
+<meta property="og:site_name" content="Mr. Liu&#39;s Learning Blog">
+<meta property="og:description" content="问题描述给你一个整数数组 nums，判断是否存在三元组 [nums[i], nums[j], nums[k]] 满足 i !&#x3D; j、i !&#x3D; k 且 j !&#x3D; k，同时还满足 nums[i] + nums[j] + nums[k] &#x3D;&#x3D; 0。请你返回所有和为 0 且不重复的三元组。  算法思路 排序：首先对数组进行排序，方便后续使用双指针。 固定一个数：遍历数组，固定一个数 nums[i]，然后在">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-02T02:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-09T07:44:26.565Z">
+<meta property="article:author" content="Liu Yu">
+<meta property="article:tag" content="双指针">
+<meta property="article:tag" content="排序">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr. Liu's Learning Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mr. Liu&#39;s Learning Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Liuyu130dfb4.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-leetcode-15-three-sum" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/02/leetcode-15-three-sum/" class="article-date">
+  <time class="dt-published" datetime="2025-04-02T02:00:00.000Z" itemprop="datePublished">2025-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/algorithms/">algorithms</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      LeetCode 15 - 三数之和
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给你一个整数数组 <code>nums</code>，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code>，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code>。请你返回所有和为 <code>0</code> 且不重复的三元组。</p>
+<hr>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><ol>
+<li><strong>排序</strong>：首先对数组进行排序，方便后续使用双指针。</li>
+<li><strong>固定一个数</strong>：遍历数组，固定一个数 <code>nums[i]</code>，然后在剩余部分寻找两个数的和为 <code>-nums[i]</code>。</li>
+<li><strong>双指针</strong>：<ul>
+<li>使用两个指针 <code>left</code> 和 <code>right</code>，分别指向当前范围的起点和终点。</li>
+<li>根据三数之和的大小调整指针位置：<ul>
+<li>如果和小于 0，移动 <code>left</code> 向右。</li>
+<li>如果和大于 0，移动 <code>right</code> 向左。</li>
+<li>如果和为 0，记录结果并跳过重复元素。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="为什么双指针方法有效？"><a href="#为什么双指针方法有效？" class="headerlink" title="为什么双指针方法有效？"></a>为什么双指针方法有效？</h2><p>双指针方法是一种贪心策略，它利用了数组排序后的性质，确保不会漏掉任何可能的结果。</p>
+<ol>
+<li><p><strong>排序的作用</strong>：</p>
+<ul>
+<li>排序后，数组中的元素从小到大排列，便于我们通过调整指针位置来控制三数之和的大小。</li>
+<li>通过排序，我们可以避免重复解的出现，因为相同的元素会被连续地排列在一起。</li>
+</ul>
+</li>
+<li><p><strong>双指针的贪心策略</strong>：</p>
+<ul>
+<li>固定一个数 <code>nums[i]</code> 后，双指针 <code>left</code> 和 <code>right</code> 分别从剩余部分的两端向中间移动。</li>
+<li>如果当前三数之和小于 0，则移动 <code>left</code> 向右以增大和。</li>
+<li>如果当前三数之和大于 0，则移动 <code>right</code> 向左以减小和。</li>
+<li>如果当前三数之和等于 0，则记录结果，并跳过重复元素。</li>
+</ul>
+</li>
+<li><p><strong>为什么不会漏掉结果？</strong></p>
+<ul>
+<li>假设我们已经确定了 <code>nums[i]</code>，并且当前的 <code>left</code> 和 <code>right</code> 指针分别指向 <code>nums[left]</code> 和 <code>nums[right]</code>。</li>
+<li>如果存在一个三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>nums[i] + nums[j] + nums[k] == 0</code>，那么一定有 <code>left &lt;= j &lt; k &lt;= right</code>。</li>
+<li>不可能出现交叉情况：<ul>
+<li><strong>情况 1</strong>：<code>left &lt;= j &lt; right &lt; k</code>。这种情况不可能，因为当 <code>right</code> 在 <code>k</code> 时，<code>nums[left] + nums[right]</code> 小于目标值，应该移动 <code>left</code> 而不是 <code>right</code>。</li>
+<li><strong>情况 2</strong>：<code>j &lt; left &lt; k &lt;= right</code>。这种情况也不可能，因为当 <code>left</code> 在 <code>j</code> 时，<code>nums[left] + nums[right]</code> 大于目标值，应该移动 <code>right</code> 而不是 <code>left</code>。</li>
+</ul>
+</li>
+<li>因此，双指针的移动策略确保了所有可能的三元组都会被遍历到。</li>
+</ul>
+</li>
+<li><p><strong>总结</strong>：</p>
+<ul>
+<li>双指针方法利用了排序后的数组性质，通过贪心策略调整指针位置，避免了二重循环的冗余计算。</li>
+<li>这种方法不仅高效，而且通过严格的指针移动规则，确保不会漏掉任何可能的结果。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">threeSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        nums.sort()  <span class="comment"># 排序</span></span><br><span class="line">        res = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="comment"># 跳过重复元素</span></span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> nums[i] == nums[i - <span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            </span><br><span class="line">            target = -nums[i]</span><br><span class="line">            left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span> left &lt; right:</span><br><span class="line">                sum_ = nums[left] + nums[right]</span><br><span class="line">                <span class="keyword">if</span> sum_ == target:</span><br><span class="line">                    res.append([nums[i], nums[left], nums[right]])</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">                    <span class="comment"># 跳过重复元素</span></span><br><span class="line">                    <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left - <span class="number">1</span>]:</span><br><span class="line">                        left += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right + <span class="number">1</span>]:</span><br><span class="line">                        right -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> sum_ &lt; target:</span><br><span class="line">                    left += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    right -= <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>：O(n²)<ul>
+<li>排序需要 O(n log n)，双指针遍历每个元素需要 O(n²)。</li>
+</ul>
+</li>
+<li><strong>空间复杂度</strong>：O(1)<ul>
+<li>仅使用了常数额外空间。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>三数之和问题是双指针的经典应用之一。通过排序和双指针的结合，我们可以高效地解决问题，同时避免重复解的出现。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liuyu130dfb4.github.io/2025/04/02/leetcode-15-three-sum/" data-id="cm99mt2b800053o694uxg0sjh" data-title="LeetCode 15 - 三数之和" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/04/09/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/04/01/leetcode-146-lru-cache/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode 146 - LRU 缓存机制</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithms/">algorithms</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/floyd/" rel="tag">floyd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E6%8C%87%E9%92%88/" rel="tag">三指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E6%A3%80%E6%B5%8B/" rel="tag">环检测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/floyd/" style="font-size: 10px;">floyd</a> <a href="/tags/%E4%B8%89%E6%8C%87%E9%92%88/" style="font-size: 10px;">三指针</a> <a href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 20px;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 10px;">哈希表</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 20px;">排序</a> <a href="/tags/%E7%8E%AF%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">环检测</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/04/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/02/leetcode-15-three-sum/">LeetCode 15 - 三数之和</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/01/leetcode-146-lru-cache/">LeetCode 146 - LRU 缓存机制</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/31/leetcode-75-explained/">LeetCode 75 - 颜色分类</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/30/leetcode-287-find-duplicate/">LeetCode 287 - 寻找重复数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Liu Yu<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
